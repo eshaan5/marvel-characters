@@ -13,7 +13,7 @@ const App = () => {
     useEffect(() => {
       fetch('https://api.jsonbin.io/b/628b8f92402a5b380209c7bd')
       .then(response => response.json()).then(characters => setChar(characters))
-    })
+    }, [])
 
     const onSearch = (e) => {
         setSearch(e.target.value)
@@ -22,8 +22,6 @@ const App = () => {
     const filtered = char.filter((character) => {
       return character.name.toLowerCase().includes(search.toLowerCase()) || character.username.toLowerCase().includes(search.toLowerCase())
   })
-
-    //setChar(filtered)
 
   return (
       <div className='tc'>
